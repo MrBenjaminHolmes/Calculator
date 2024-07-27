@@ -4,11 +4,11 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-color: #FFFBDA;
+    background-color: #ecebe6;
     border: 2px solid #c5c5c5;
     border-radius: 10px;
     padding: 20px;
-    width: 335px;
+    width: 325px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -27,7 +27,7 @@
 
 .inputs {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     flex-wrap: wrap;
 }
 
@@ -40,18 +40,24 @@ button{
 }
 
 .num{
-    background-color:#FFEC9E;
+    background-color:#bbb4b4;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 
 .operator{
-    background-color:#FFBB70;
+    background-color:#FFB22C;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #equals{
-    background-color:#ED9455;
+    background-color:#8b8b8b;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+button:hover{
+    transform: scale(1.05);
+    background-image: linear-gradient(rgba(68, 64, 64, 0.5) 0 0);
+    color: white;
+
+}
