@@ -1,9 +1,10 @@
 const display = document.querySelector(".display");
 const numBtns = document.querySelectorAll(".num");
-let operatorSelected = false;
+let refresh = false;
 let value1= "";
 let operator = ""
 let value2 ="";
+let Ans=0;
 const equals = document.querySelector("#equals");
 const operators = document.querySelectorAll(".operator");
 const deleteBtns = document.querySelectorAll(".top>button");
@@ -14,12 +15,33 @@ function removeSelected(){
     })
 }
 
+function evaluate(num1,num2,operator){
+    if (operator === "+")
+    {
+        return parseInt(num1)+parseInt(num2);
+    }
+    if (operator === "-")
+    {
+        return parseInt(num1)-parseInt(num2);
+    }
+    if (operator === "×")
+    {
+        return parseInt(num1)*parseInt(num2);
+    }
+    if (operator === "÷")
+    {
+        return parseInt(num1)/parseInt(num2);
+    }
+    
+
+}
+
 numBtns.forEach((number)=>{
     number.addEventListener(("click"),()=>{
-        if (operatorSelected === true){
+        if (refresh === true){
             display.innerHTML = "";
             display.innerHTML += number.textContent;
-            operatorSelected = false;
+            refresh = false;
 
         }
         else
@@ -40,10 +62,9 @@ deleteBtns[1].addEventListener("click",()=>{
 
 operators.forEach((operatorBtn)=>{
     operatorBtn.addEventListener("click",()=>{
-        console.log(operatorBtn)
         value1 = display.textContent
         operator = operatorBtn.textContent
-        operatorSelected = true;
+        refresh = true;
         removeSelected()
         operatorBtn.classList.add("selected")
         
@@ -51,3 +72,20 @@ operators.forEach((operatorBtn)=>{
 
 })
 
+equals.addEventListener("click",()=>{
+    value2 = display.textContent;
+    if (value1 === "Ans") {
+        value1 = Ans.toString();
+    }
+    if (value2 === "Ans") {
+        value2 = Ans.toString();
+    }
+    Ans = evaluate(value1,value2,operator);
+    display.innerHTML = Ans;
+    console.log(Ans);
+    removeSelected();
+    value1= "";
+    operator = ""
+    value2 ="";
+    refresh = true;
+})
