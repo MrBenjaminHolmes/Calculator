@@ -16,21 +16,27 @@ function removeSelected(){
 }
 
 function evaluate(num1,num2,operator){
+    if (value1 === "" || value1 === null){
+        return value2;
+    }
+    if (value2 === "" || value2 === null){
+        return value1;
+    }
     if (operator === "+")
     {
-        return parseInt(num1)+parseInt(num2);
+        return parseFloat(num1)+parseFloat(num2);
     }
     if (operator === "-")
     {
-        return parseInt(num1)-parseInt(num2);
+        return parseFloat(num1)-parseFloat(num2);
     }
     if (operator === "×")
     {
-        return parseInt(num1)*parseInt(num2);
+        return parseFloat(num1)*parseFloat(num2);
     }
     if (operator === "÷")
     {
-        return parseInt(num1)/parseInt(num2);
+        return parseFloat(num1)/parseFloat(num2);
     }
     
 
