@@ -4,6 +4,7 @@ let refresh = false;
 let value1= "";
 let operator = ""
 let value2 ="";
+const pi = Math.PI;
 let Ans=0;
 const equals = document.querySelector("#equals");
 const operators = document.querySelectorAll(".operator");
@@ -69,6 +70,10 @@ deleteBtns[1].addEventListener("click",()=>{
 operators.forEach((operatorBtn)=>{
     operatorBtn.addEventListener("click",()=>{
         value1 = display.textContent
+        if(value1 === "π")
+        {
+            value1 = pi;
+        }
         operator = operatorBtn.textContent
         refresh = true;
         removeSelected()
