@@ -1,102 +1,123 @@
 const display = document.querySelector(".display");
 const numBtns = document.querySelectorAll(".num");
 let refresh = false;
-let value1= "";
-let operator = ""
-let value2 ="";
+let value1 = "";
+let operator = "";
+let value2 = "";
 const pi = Math.PI;
-let Ans=0;
+let Ans = 0;
 const equals = document.querySelector("#equals");
 const operators = document.querySelectorAll(".operator");
+const squared = document.querySelector("#square");
 const deleteBtns = document.querySelectorAll(".top>button");
 
-function removeSelected(){
-    operators.forEach((operatorBtn)=>{
+function removeSelected() {
+    operators.forEach((operatorBtn) => {
         operatorBtn.classList.remove("selected");
-    })
+    });
 }
 
-function evaluate(num1,num2,operator){
-    if (value1 === "" || value1 === null){
-        return value2;
+function evaluate(num1, num2, operator) {
+    if (num1 === "" || num1 === null) {
+        return num2;
     }
-    if (value2 === "" || value2 === null){
-        return value1;
+    if (num2 === "" || num2 === null) {
+        return num1;
     }
-    if (operator === "+")
-    {
-        return parseFloat(num1)+parseFloat(num2);
+    if (operator === "+") {
+        return parseFloat(num1) + parseFloat(num2);
     }
-    if (operator === "-")
-    {
-        return parseFloat(num1)-parseFloat(num2);
+    if (operator === "-") {
+        return parseFloat(num1) - parseFloat(num2);
     }
-    if (operator === "×")
-    {
-        return parseFloat(num1)*parseFloat(num2);
+    if (operator === "×") {
+        return parseFloat(num1) * parseFloat(num2);
     }
-    if (operator === "÷")
-    {
-        return parseFloat(num1)/parseFloat(num2);
+    if (operator === "÷") {
+        return parseFloat(num1) / parseFloat(num2);
     }
-    
-
 }
 
-numBtns.forEach((number)=>{
-    number.addEventListener(("click"),()=>{
-        if (refresh === true){
+numBtns.forEach((number) => {
+    number.addEventListener("click", () => {
+        if (refresh === true) {
             display.innerHTML = "";
-            display.innerHTML += number.textContent;
             refresh = false;
-
         }
-        else
-        {
-            display.innerHTML += number.textContent;
-        }
-        
-    })
-})
+        display.innerHTML += number.textContent;
+    });
+});
 
-deleteBtns[0].addEventListener("click",()=>{
+deleteBtns[0].addEventListener("click", () => {
     display.innerHTML = "";
-})
+    value1 = "";
+    value2 = "";
+    operator = "";
+    refresh = false;
+});
 
-deleteBtns[1].addEventListener("click",()=>{
-    display.innerHTML =display.textContent.slice(0, -1);
-})
+deleteBtns[1].addEventListener("click", () => {
+    display.innerHTML = display.textContent.slice(0, -1);
+});
 
-operators.forEach((operatorBtn)=>{
-    operatorBtn.addEventListener("click",()=>{
-        value1 = display.textContent
-        if(value1 === "π")
-        {
+operators.forEach((operatorBtn) => {
+    operatorBtn.addEventListener("click", () => {
+        value1 = display.textContent;
+        if (value1 === "π") {
             value1 = pi;
         }
-        operator = operatorBtn.textContent
+        operator = operatorBtn.textContent;
         refresh = true;
-        removeSelected()
-        operatorBtn.classList.add("selected")
-        
-    })
+        removeSelected();
+        operatorBtn.classList.add("selected");
+    });
+});
 
-})
-
-equals.addEventListener("click",()=>{
-    value2 = display.textContent;
-    if (value1 === "Ans") {
-        value1 = Ans.toString();
+equals.addEventListener("click", () => {
+    if (operator === "") {
+        Ans = display.textContent;
+    } else {
+        value2 = display.textContent;
+        if (value2 === "π") {
+            value2 = pi;
+        }
+        if (value1 === "Ans") {
+            value1 = Ans.toString();
+        }
+        if (value2 === "Ans") {
+            value2 = Ans.toString();
+        }
+        Ans = evaluate(value1, value2, operator);
     }
-    if (value2 === "Ans") {
-        value2 = Ans.toString();
-    }
-    Ans = evaluate(value1,value2,operator);
     display.innerHTML = Ans;
     console.log(Ans);
     removeSelected();
-    value1= "";
-    operator = ""
-    value2 ="";
+    value1 = "";
+    operator = "";
+    value2 = "";
     refresh = true;
-})
+});
+
+squared.addEventListener("click", () => {
+    const currentValue = parseFloat(display.textContent);
+    if (!isNaN(currentValue)) {
+        display.innerHTML = currentValue * currentValue;
+        Ans = display.textContent; 
+        value1 = display.textContent; 
+        operator = ""; 
+    }
+    removeSelected();
+});
+
+
+root.addEventListener("click", () => {
+    const currentValue = parseFloat(display.textContent);
+    if (!isNaN(currentValue)) {
+        display.innerHTML = Math.sqrt(currentValue);
+        Ans = display.textContent; 
+        value1 = display.textContent; 
+        operator = ""; 
+    }
+    removeSelected();
+});
+
