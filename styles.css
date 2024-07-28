@@ -31,6 +31,7 @@
 
 .inputs {
     display: flex;
+    width: 100%;
     gap: 10px;
     flex-wrap: wrap;
 }
@@ -64,4 +65,15 @@ button:hover{
     background-image: linear-gradient(rgba(68, 64, 64, 0.05) 0 0);
     color: rgb(255, 255, 255);
 
+}
+
+.top{
+    display: flex;
+    width: 100%;   
+}
+
+.top>button{
+    background-color:#ff9d2c;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
 }
