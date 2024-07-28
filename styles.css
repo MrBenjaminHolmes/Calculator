@@ -49,7 +49,7 @@ button{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-
+.spec,
 .operator{
     background-color:#FFB22C;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -76,4 +76,9 @@ button:hover{
     background-color:#ff9d2c;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 10px;
+}
+
+.selected{
+    color: white;
+
 }
