@@ -1,6 +1,7 @@
 
 *{
     font-weight: 500;
+    font-family: 'Courier New', Courier, monospace;
 }
 .container {
     display: flex;
@@ -45,25 +46,26 @@ button{
 }
 
 .num{
-    background-color:#bbb4b4;
+    background-color:#3f3f3f;
+    color: #d8d8d8;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
-.spec,
+.pi,
 .operator{
     background-color:#FFB22C;
+    color: black;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #equals{
-    background-color:#ff9d2c;
+    background-color:#7fcf51;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 button:hover{
     transform: scale(1.05);
     background-image: linear-gradient(rgba(68, 64, 64, 0.05) 0 0);
-    color: rgb(255, 255, 255);
+    color: rgb(253, 253, 253);
 
 }
 
@@ -73,7 +75,7 @@ button:hover{
 }
 
 .top>button{
-    background-color:#ff9d2c;
+    background-color:#e66d64;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 10px;
 }
