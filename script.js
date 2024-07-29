@@ -10,6 +10,7 @@ const equals = document.querySelector("#equals");
 const operators = document.querySelectorAll(".operator");
 const AnsBtn = document.querySelector("#ans");
 const squared = document.querySelector("#square");
+const root = document.querySelector("#root");
 const deleteBtns = document.querySelectorAll(".top>button");
 
 function removeSelected() {
