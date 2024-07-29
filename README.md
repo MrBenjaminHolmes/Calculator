@@ -1,5 +1,5 @@
 # Etch-a-Sketch
-An Interactive Etch-a-Sketch Webpage - HTML , CSS , JS
+An Interactive Calculator Webpage - HTML , CSS , JS
 
 [Try Me!](https://mrfarmerbon.github.io/Calculator/) 📱
 
