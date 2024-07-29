@@ -43,6 +43,7 @@ function evaluate(num1, num2, operator) {
 
 numBtns.forEach((number) => {
     number.addEventListener("click", () => {
+        if(display.innerHTML.length < 15)
         if (display.innerHTML.includes(".")) {
             if (refresh === true) {
                 display.innerHTML = "";
