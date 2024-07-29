@@ -112,10 +112,9 @@ equals.addEventListener("click", () => {
         Ans = evaluate(value1, value2, operator);
     }
 
-    if(Ans.toString().includes("."))
+    if(Ans.toString().includes(".") && Ans.toString().split('.')[1].length > 5)
     {
-
-       Ans=Ans.toFixed(4);
+       Ans=Ans.toFixed(5);
     }
     display.innerHTML = Ans;
     removeSelected();
