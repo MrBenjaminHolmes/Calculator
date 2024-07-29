@@ -41,11 +41,27 @@ function evaluate(num1, num2, operator) {
 
 numBtns.forEach((number) => {
     number.addEventListener("click", () => {
-        if (refresh === true) {
-            display.innerHTML = "";
-            refresh = false;
+        if(display.innerHTML.includes("."))
+        {
+            if (refresh === true) {
+                display.innerHTML = "";
+                refresh = false;
+            }
+            if (number.textContent != ".")
+            {
+                display.innerHTML += number.textContent;
+            }
+
         }
-        display.innerHTML += number.textContent;
+        else
+        {
+            if (refresh === true) {
+                display.innerHTML = "";
+                refresh = false;
+            }
+            display.innerHTML += number.textContent;
+        }
+
     });
 });
 
