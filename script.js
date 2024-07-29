@@ -8,6 +8,7 @@ const pi = Math.PI;
 let Ans = 0;
 const equals = document.querySelector("#equals");
 const operators = document.querySelectorAll(".operator");
+const AnsBtn = document.querySelector("#ans");
 const squared = document.querySelector("#square");
 const deleteBtns = document.querySelectorAll(".top>button");
 
@@ -109,6 +110,10 @@ squared.addEventListener("click", () => {
     removeSelected();
 });
 
+AnsBtn.addEventListener("click", () => {
+    display.innerHTML = Ans;
+    refresh = true;
+});
 
 root.addEventListener("click", () => {
     const currentValue = parseFloat(display.textContent);
@@ -120,4 +125,3 @@ root.addEventListener("click", () => {
     }
     removeSelected();
 });
-
