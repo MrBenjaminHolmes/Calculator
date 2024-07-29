@@ -44,20 +44,22 @@ function evaluate(num1, num2, operator) {
 numBtns.forEach((number) => {
     number.addEventListener("click", () => {
         if(display.innerHTML.length < 15)
-        if (display.innerHTML.includes(".")) {
-            if (refresh === true) {
-                display.innerHTML = "";
-                refresh = false;
-            }
-            if (number.textContent != ".") {
+        {
+            if (display.innerHTML.includes(".")) {
+                if (refresh === true) {
+                    display.innerHTML = "";
+                    refresh = false;
+                }
+                if (number.textContent != ".") {
+                    display.innerHTML += number.textContent;
+                }
+            } else {
+                if (refresh === true) {
+                    display.innerHTML = "";
+                    refresh = false;
+                }
                 display.innerHTML += number.textContent;
             }
-        } else {
-            if (refresh === true) {
-                display.innerHTML = "";
-                refresh = false;
-            }
-            display.innerHTML += number.textContent;
         }
     });
 });
@@ -124,7 +126,6 @@ equals.addEventListener("click", () => {
     value2 = "";
     refresh = true;
 });
-
 
 squared.addEventListener("click", () => {
     const currentValue = parseFloat(display.textContent);
