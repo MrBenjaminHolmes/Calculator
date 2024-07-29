@@ -41,27 +41,21 @@ function evaluate(num1, num2, operator) {
 
 numBtns.forEach((number) => {
     number.addEventListener("click", () => {
-        if(display.innerHTML.includes("."))
-        {
+        if (display.innerHTML.includes(".")) {
             if (refresh === true) {
                 display.innerHTML = "";
                 refresh = false;
             }
-            if (number.textContent != ".")
-            {
+            if (number.textContent != ".") {
                 display.innerHTML += number.textContent;
             }
-
-        }
-        else
-        {
+        } else {
             if (refresh === true) {
                 display.innerHTML = "";
                 refresh = false;
             }
             display.innerHTML += number.textContent;
         }
-
     });
 });
 
@@ -104,6 +98,15 @@ equals.addEventListener("click", () => {
         if (value2 === "Ans") {
             value2 = Ans.toString();
         }
+        if (value2 === "0" && operator === "÷") {
+            display.innerHTML = "Nice Try";
+            refresh = true;
+            removeSelected();
+            value1 = "";
+            operator = "";
+            value2 = "";
+            return; 
+        }
         Ans = evaluate(value1, value2, operator);
     }
     display.innerHTML = Ans;
@@ -115,13 +118,14 @@ equals.addEventListener("click", () => {
     refresh = true;
 });
 
+
 squared.addEventListener("click", () => {
     const currentValue = parseFloat(display.textContent);
     if (!isNaN(currentValue)) {
         display.innerHTML = currentValue * currentValue;
-        Ans = display.textContent; 
-        value1 = display.textContent; 
-        operator = ""; 
+        Ans = display.textContent;
+        value1 = display.textContent;
+        operator = "";
     }
     removeSelected();
 });
@@ -135,9 +139,9 @@ root.addEventListener("click", () => {
     const currentValue = parseFloat(display.textContent);
     if (!isNaN(currentValue)) {
         display.innerHTML = Math.sqrt(currentValue);
-        Ans = display.textContent; 
-        value1 = display.textContent; 
-        operator = ""; 
+        Ans = display.textContent;
+        value1 = display.textContent;
+        operator = "";
     }
     removeSelected();
 });
