@@ -1,5 +1,6 @@
 const display = document.querySelector(".display");
 const numBtns = document.querySelectorAll(".num");
+let decimals = 0;
 let refresh = false;
 let value1 = "";
 let operator = "";
@@ -110,8 +111,13 @@ equals.addEventListener("click", () => {
         }
         Ans = evaluate(value1, value2, operator);
     }
+
+    if(Ans.toString().includes("."))
+    {
+
+       Ans=Ans.toFixed(4);
+    }
     display.innerHTML = Ans;
-    console.log(Ans);
     removeSelected();
     value1 = "";
     operator = "";
