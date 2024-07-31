@@ -1,4 +1,4 @@
-# Etch-a-Sketch
+# Calculator
 An Interactive Calculator Webpage - HTML , CSS , JS
 
 [Try Me!](https://mrfarmerbon.github.io/Calculator/) 📱
