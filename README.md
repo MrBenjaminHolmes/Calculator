@@ -1,7 +1,7 @@
 # Calculator
 An Interactive Calculator Webpage - HTML , CSS , JS
 
-[Try Me!](https://mrfarmerbon.github.io/Calculator/) 📱
+[Try Me!](https://MrBenjaminHolmes.github.io/Calculator/) 📱
 
 © 2024 MrFarmerBon
 
